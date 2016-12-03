@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.Content;
+using Android.Views;
+using Android.Widget;
+
+using Android.App;
+using Android.OS;
+using Android.Runtime;
+
+namespace Enel_Map.Droid
+{
+    public class NodoAdapter : ArrayAdapter<Nodo>
+    {
+
+        public NodoAdapter(Context context, int textViewResourceId) : base(context, textViewResourceId) { }
+        public NodoAdapter(Context context, int textViewResourceId, IList<Nodo> objects) : base(context, textViewResourceId, objects) { }
+
+
+        public override View GetView(int position, View convertView, ViewGroup parent)
+        {
+            View v = convertView;
+
+            if (v == null)
+            {
+                LayoutInflater vi = LayoutInflater.From(Context);
+                v = vi.Inflate(Resource.Layout.fragment_nodi_item, null);
+            }
+            TextView txtCodice = v.FindViewById<TextView>(Resource.Id.txt_item_codice);
+            TextView txtTipo = v.FindViewById<TextView>(Resource.Id.txt_item_tipo);
+            TextView txtNome = v.FindViewById<TextView>(Resource.Id.txt_item_nome);
+
+            txtCodice.Text = "";
+            txtTipo.Text = "";
+            txtNome.Text = "";
+
+            Nodo nodo = GetItem(position);
+            if (nodo != null)
+            {
+                if (txtCodice != null)
+                {
+                    txtCodice.Text = nodo.Codice;
+                }
+                if(txtTipo != null)
+                {
+                    txtTipo.Text = nodo.Tipo.ToString();
+                }
+                if(txtNome != null)
+                {
+                    txtNome.Text = nodo.Nome;
+                }
+            }
+            return v;
+        }
+    }
+}
