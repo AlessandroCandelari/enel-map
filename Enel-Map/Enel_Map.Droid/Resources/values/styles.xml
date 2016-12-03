@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="FieldContainer">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:orientation">vertical</item>
+    <item name="android:layout_margin">3dp</item>
+    <item name="android:layout_marginLeft">6dp</item>
+  </style>
+  <style name="FieldLabel" parent="@android:style/TextAppearance.Small">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+  <style name="FieldValue" parent="@android:style/TextAppearance.Medium">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_alignParentLeft">true</item>
+    <item name="android:textSize">20sp</item>
+  </style>
+</resources>

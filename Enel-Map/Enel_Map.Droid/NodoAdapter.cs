@@ -30,11 +30,11 @@ namespace Enel_Map.Droid
                 v = vi.Inflate(Resource.Layout.fragment_nodi_item, null);
             }
             TextView txtCodice = v.FindViewById<TextView>(Resource.Id.txt_item_codice);
-            TextView txtTipo = v.FindViewById<TextView>(Resource.Id.txt_item_tipo);
+            TextView txtIndirizzo = v.FindViewById<TextView>(Resource.Id.txt_item_indirizzo);
             TextView txtNome = v.FindViewById<TextView>(Resource.Id.txt_item_nome);
 
             txtCodice.Text = "";
-            txtTipo.Text = "";
+            txtIndirizzo.Text = "";
             txtNome.Text = "";
 
             Nodo nodo = GetItem(position);
@@ -44,9 +44,9 @@ namespace Enel_Map.Droid
                 {
                     txtCodice.Text = nodo.Codice;
                 }
-                if(txtTipo != null)
+                if(txtIndirizzo != null)
                 {
-                    txtTipo.Text = nodo.Tipo.ToString();
+                    txtIndirizzo.Text = nodo.Indirizzo;
                 }
                 if(txtNome != null)
                 {

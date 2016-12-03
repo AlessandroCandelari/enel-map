@@ -29,6 +29,7 @@ namespace Enel_Map.Droid
         private List<Nodo> GetNodiDaCsv(string path)
         {
             var lines = File.ReadAllLines(path).Select(a => a.Split(';'));
+            
             List<Nodo> nodi = new List<Nodo>();
             foreach (var line in lines)
             {

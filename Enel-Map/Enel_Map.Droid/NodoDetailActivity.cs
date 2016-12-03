@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
+
 using Android.Views;
 using Android.Widget;
 
@@ -37,14 +32,12 @@ namespace Enel_Map.Droid
             txtIndirizzo = FindViewById<TextView>(Resource.Id.txt_item_indirizzo);
             txtLinea = FindViewById<TextView>(Resource.Id.txt_item_linea);
             txtNome = FindViewById<TextView>(Resource.Id.txt_item_nome);
-            txtTipo = FindViewById<TextView>(Resource.Id.txt_item_tipo);
 
             txtCodice.Text = nodo.Codice;
             txtCFT.Text = nodo.CFT;
             txtIndirizzo.Text = nodo.Indirizzo;
             txtLinea.Text = nodo.Linea;
             txtNome.Text = nodo.Nome;
-            txtTipo.Text = nodo.Tipo.ToString();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

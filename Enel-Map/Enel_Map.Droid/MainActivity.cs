@@ -29,8 +29,7 @@ namespace Enel_Map.Droid
 			ListView list = FindViewById<ListView> (Resource.Id.list);
             list.ItemClick += List_ItemClick;
 
-            List<Nodo> nodi = DbConn.GetSQLiteConnection().Table<Nodo>().ToList();
-
+            List<Nodo> nodi = NodoRepo.List();
             adapter = new NodoAdapter(this, Resource.Layout.fragment_nodi_item, nodi);
             list.Adapter = adapter;
         }
@@ -49,8 +48,13 @@ namespace Enel_Map.Droid
         {
             var item = menu.Add("Importa csv");
             item.SetShowAsAction(ShowAsAction.Always);
-
             item.SetOnMenuItemClickListener(new ImportCsvListener(this));
+
+            item = menu.Add(String.Empty);
+            item.SetShowAsAction(ShowAsAction.Always);
+            var searchView = new SearchView(this);
+            searchView.SetOnQueryTextListener(new SearchViewListener(adapter, this));
+            item.SetActionView(searchView);
 
             base.OnCreateOptionsMenu(menu);
 
@@ -63,10 +67,11 @@ namespace Enel_Map.Droid
             if (requestCode == 1 && resultCode == Result.Ok)
             {
                 String path = GetPathFromURI(this, data.Data);
+
                 CsvImporter importer = new CsvImporter();
                 importer.Import(path);
                 adapter.Clear();
-                adapter.AddAll(DbConn.GetSQLiteConnection().Table<Nodo>().ToList());
+                adapter.AddAll(NodoRepo.List());
                 adapter.NotifyDataSetChanged();
             }
         }
@@ -176,6 +181,37 @@ namespace Enel_Map.Droid
         }
 
     }
+    class SearchViewListener : Java.Lang.Object, SearchView.IOnQueryTextListener
+    {
+        private NodoAdapter adapter;
+        private MainActivity mainActivity;
+
+        public SearchViewListener(NodoAdapter adapter, MainActivity mainActivity)
+        {
+            this.adapter = adapter;
+            this.mainActivity = mainActivity;
+        }
+
+        public bool OnQueryTextChange(string newText)
+        {
+            if (String.IsNullOrEmpty(newText))
+            {
+                adapter.Clear();
+                adapter.AddAll(NodoRepo.List());
+                adapter.NotifyDataSetChanged();
+            }
+            return true;
+        }
+
+        public bool OnQueryTextSubmit(string query)
+        {
+            adapter.Clear();
+            adapter.AddAll(NodoRepo.List(query));
+            adapter.NotifyDataSetChanged();
+            return true;
+        }
+    }
+
     class ImportCsvListener : Java.Lang.Object, IMenuItemOnMenuItemClickListener
     {
         private Activity activity;

@@ -3,46 +3,49 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-  <TextView
-      android:id="@+id/txt_item_codice"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:padding="5dp"
-      android:textSize="12sp" />
-
-  <TextView
-      android:id="@+id/txt_item_tipo"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:padding="5dp"
-      android:textSize="12sp" />
-
-  <TextView
-      android:id="@+id/txt_item_nome"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:padding="5dp"
-      android:textSize="12sp" />
-
-  <TextView
-      android:id="@+id/txt_item_indirizzo"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:padding="5dp"
-      android:textSize="12sp" />
-
-  <TextView
-      android:id="@+id/txt_item_CFT"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:padding="5dp"
-      android:textSize="12sp" />
-
-  <TextView
-      android:id="@+id/txt_item_linea"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:padding="5dp"
-      android:textSize="12sp" />
+  <LinearLayout
+        style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Codice" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_codice" />
+  </LinearLayout>
+  <LinearLayout
+        style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Nome" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_nome" />
+  </LinearLayout>
+  <LinearLayout
+        style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Indirizzo" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_indirizzo" />
+  </LinearLayout>
+  <LinearLayout
+        style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="CFT" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_CFT" />
+  </LinearLayout>
+  <LinearLayout
+          style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Linea" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_linea" />
+  </LinearLayout>
 </LinearLayout>
