@@ -64,7 +64,9 @@ namespace Enel_Map.Droid
             {
                 String path = GetPathFromURI(this, data.Data);
                 CsvImporter importer = new CsvImporter();
-                importer.Import();
+                importer.Import(path);
+                adapter.Clear();
+                adapter.AddAll(DbConn.GetSQLiteConnection().Table<Nodo>().ToList());
                 adapter.NotifyDataSetChanged();
             }
         }

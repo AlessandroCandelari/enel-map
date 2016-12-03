@@ -10,6 +10,7 @@ using Android.Views;
 using Android.Widget;
 using SQLite;
 using System.IO;
+using System.Globalization;
 
 namespace Enel_Map.Droid
 {
@@ -27,26 +28,22 @@ namespace Enel_Map.Droid
         }
         private List<Nodo> GetNodiDaCsv(string path)
         {
-            var nodo1 = new Nodo
+            var lines = File.ReadAllLines(path).Select(a => a.Split(';'));
+            List<Nodo> nodi = new List<Nodo>();
+            foreach (var line in lines)
             {
-                ID = 1,
-                Codice = "2",
-                Tipo = 1,
-                Nome = "nodo ajkfhdjsgdj",
-                Longitudine = 13.382664M,
-                Latitudine = 43.563909M
-            };
-            var nodo2 = new Nodo
-            {
-                ID = 2,
-                Tipo = 2,
-                Nome = "gianpeppo",
-                Codice = "3",
-                Longitudine = 13.239818M,
-                Latitudine = 43.520070M
-            };
-            List<Nodo> nodi = new List<Nodo> { nodo1, nodo2 };
+                var lat = line[2].Split(',')[0];
+                var lng = line[2].Split(',')[1];
 
+                var nodo = new Nodo
+                {
+                    Codice = line[0],
+                    Nome = line[1],
+                    Latitudine = decimal.Parse(lat, new CultureInfo("en-US")),
+                    Longitudine = decimal.Parse(lng, new CultureInfo("en-US"))
+                };
+                nodi.Add(nodo);
+            }
             return nodi;
         }
     }
