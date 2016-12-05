@@ -48,4 +48,42 @@
         style="@style/FieldValue"
         android:id="@+id/txt_item_linea" />
   </LinearLayout>
+  <LinearLayout
+          style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Costruzione" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_costruzione" />
+  </LinearLayout>
+  <LinearLayout
+          style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Tipo" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_tipo" />
+  </LinearLayout>
+
+  <LinearLayout
+          style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Data" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_data" />
+  </LinearLayout>
+
+  <LinearLayout
+          style="@style/FieldContainer">
+    <TextView
+        style="@style/FieldLabel"
+        android:text="Idoneo" />
+    <TextView
+        style="@style/FieldValue"
+        android:id="@+id/txt_item_idoneo" />
+  </LinearLayout>
 </LinearLayout>

@@ -13,7 +13,7 @@ using Android.Database;
 
 namespace Enel_Map.Droid
 {
-	[Activity (Label = "Enel_Map", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "Elenco nodi", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
         private NodoAdapter adapter;

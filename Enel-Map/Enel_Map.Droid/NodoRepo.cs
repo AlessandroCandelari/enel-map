@@ -12,9 +12,10 @@ namespace Enel_Map.Droid
                 " select * from Nodo " +
                 $" where {nameof(Nodo.Codice)} like ? or " +
                 $" {nameof(Nodo.Nome)} like ? or " +
-                $" {nameof(Nodo.Indirizzo)} like ?" +
+                $" {nameof(Nodo.Indirizzo)} like ? or " +
+                $" {nameof(Nodo.Costruzione)} like ?" +
                 " limit 200"
-                , query, query, query).ToList();
+                , query, query, query,query).ToList();
         }
 
         internal static List<Nodo> List()
