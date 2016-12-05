@@ -40,6 +40,6 @@ TestResult.xml
 # Custom
 Resource.designer.cs
 keystore.jks
-icon.png
-logo.png
 Enel-Map/Enel_Map.Droid/obj/
+.localhistory/
+*.apk

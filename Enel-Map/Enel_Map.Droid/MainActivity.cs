@@ -44,7 +44,7 @@ namespace Enel_Map.Droid
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             var item = menu.Add("Importa csv");
-            item.SetShowAsAction(ShowAsAction.Always);
+            item.SetShowAsAction(ShowAsAction.Never);
             item.SetOnMenuItemClickListener(new ImportCsvListener(this));
 
             item = menu.Add(String.Empty);
