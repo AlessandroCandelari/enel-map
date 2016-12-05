@@ -20,12 +20,9 @@ namespace Enel_Map.Droid
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
-
-			// Set our view from the "main" layout resource
+            
 			SetContentView (Resource.Layout.Main);
-
-			// Get our button from the layout resource,
-			// and attach an event to it
+            
 			ListView list = FindViewById<ListView> (Resource.Id.list);
             list.ItemClick += List_ItemClick;
 
@@ -226,7 +223,6 @@ namespace Enel_Map.Droid
             Intent intent = null;
             intent = new Intent(Intent.ActionGetContent);
             intent.SetType("*/*");
-            // intent.PutExtra(Intent.ExtraLocalOnly, true); // disabilita i provider tipo dropbox e googledrive
 
             activity.StartActivityForResult(intent, 1);
             return true;
